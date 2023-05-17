@@ -1,6 +1,7 @@
 import random
 import time
 
+
 class Customer:
     def _init_(self, name, transaction_time):
         self.name = name
@@ -8,9 +9,10 @@ class Customer:
         self.entered_queue_time = 0
         self.left_queue_time = 0
 
+
 class BankQueue:
     def __init__(self):
-        self.queue= []
+        self.queue = []
 
     def is_empty(self):
         return len(self.queue) == 0
@@ -23,6 +25,7 @@ class BankQueue:
             return None
         return self.queue.pop(0)
 
+
 class BankSimulation:
     def __init__(self, num_customers, service_time_mean):
         self.customer = []
@@ -32,8 +35,9 @@ class BankSimulation:
 
     def generate_customers(self):
         for i in range(self.num_customers):
-            customer = Customer(f"Pelanggan {i+1}", random.expovariate(1/self.service_time_mean))
-            self.customer.append(customer)
+            customer = Customer(
+                f"Pelanggan {i+1}", random.expovariate(1/self.service_time_mean))
+            self.customers.append(customer)
 
     def run_simulation(self):
         self.generate_customers()
@@ -45,15 +49,17 @@ class BankSimulation:
             customer = self.bank_queue.dequeue()
             print(f"{customer.name} keluar antrian pada {time.time()}")
             customer.left_queue_time = time.time()
-            time_in_queue=customer.left_queue_time-customer.entered_queue_time
-            print(f"{customer.name} menghabiskan {service_time:.2f} detik dalam antrian")
+            time_in_queue = customer.left_queue_time - customer.entered_queue_time
+            print(
+                f"{customer.name} menghabiskan {time_in_queue:.2f} detik dalam antrian")
 
-            service_time=random.expovariate(1/self.service_time_mean)
+            service_time = random.expovariate(1/self.service_time_mean)
             print(f"{customer.name} dilayani selama {service_time:.2f} detik")
             time.sleep(service_time)
 
             print(f"{customer.name} selesai transaksi pada {time.time()}")
 
-if __name__=="_main_":
-    sim = BankSimulation(num_customers=10,service_time_mean=5)
+
+if __name__ == "__main__":
+    sim = BankSimulation(num_customers=10, service_time_mean=5)
     sim.run_simulation()
