@@ -1,5 +1,5 @@
 # Python
-/nTrainning Python code
-/nPython code go here
-/nBelajar Tentang stack dan queue
-/nlatihan 2 belum
+Trainning Python code
+Python code go here
+Belajar Tentang stack dan queue
+latihan 2 belum
