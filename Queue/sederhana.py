@@ -1,11 +1,13 @@
-stack = [1,2,3,4,5]
+from collections import deque
 
-stack.append (6)
-print(f"Tumoukan Masuk {6}")
+queue = deque ([1,2,3,4,5])
 
-stack.append(7)
-print(f"Tumpukan Masuk {7}")
+queue.append(6)
+print(f"Antrian Masuk {6}")
 
-out = stack.pop()
-print(f"Tumpukan Keluar {out}")
-print(f"Tumpukan Sekarang {stack}")
+queue.append(7)
+print(f"Antrian Massuk {7}")
+
+out = queue.popleft()
+print(f"Antrian Keluar {out}")
+print(f"Antrian Sekarang {out}")
