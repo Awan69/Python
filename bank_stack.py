@@ -3,7 +3,7 @@ import time
 
 
 class Customer:
-    def _init_(self, name, transaction_time):
+    def __init__(self, name, transaction_time):
         self.name = name
         self.transaction_time = transaction_time
         self.entered_queue_time = 0
@@ -28,7 +28,7 @@ class BankQueue:
 
 class BankSimulation:
     def __init__(self, num_customers, service_time_mean):
-        self.customer = []
+        self.customers = []
         self.bank_queue = BankQueue()
         self.num_customers = num_customers
         self.service_time_mean = service_time_mean
@@ -42,7 +42,9 @@ class BankSimulation:
     def run_simulation(self):
         self.generate_customers()
         for customer in self.customers:
-            print(f"{customer.name} masukan antrian pada {time.time()}")
+            customer.entered_queue_time = time.time()
+            print(
+                f"{customer.name} masukan antrian pada {customer.entered_queue_time}")
             self.bank_queue.enqueue(customer)
 
         while not self.bank_queue.is_empty():
