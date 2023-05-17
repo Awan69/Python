@@ -30,7 +30,7 @@ while True:
 
     if pilihan == "1" :
         new_item = input("Masukan barang yang akan ditambahkan: ")
-        add_item1(stack, new_item)
+        add_item(stack, new_item)
     if pilihan == "2" :
         remove_last_item(stack)
     if pilihan == "3" :
