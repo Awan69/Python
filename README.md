@@ -5,4 +5,3 @@ Trainning Python code
  
  Belajar Tentang stack dan queue
  
- latihan 2 belum
